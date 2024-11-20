@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # Replace "npm" with your package manager
+    directory: "/" # The location of the dependency files
+    schedule:
+      interval: "daily"
