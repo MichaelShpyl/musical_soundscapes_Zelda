@@ -1,0 +1,33 @@
+version: 2 # This just tells GitHub which version of the Dependabot config we're using (always use version 2!).
+
+updates:
+  # For JavaScript (npm packages)
+  - package-ecosystem: "npm" # Dependabot will check for updates in npm (Node.js).
+    directory: "/"           # The root folder of your project (where package.json is).
+    schedule:
+      interval: "weekly"     # Dependabot will check for updates every week (so it’s not too spammy!).
+    open-pull-requests-limit: 5 # Let's not flood ourselves with too many pull requests.
+
+  # For Python (pip packages)
+  - package-ecosystem: "pip" # Checking Python dependencies managed by pip.
+    directory: "/"           # Again, the root folder of your project (where requirements.txt is).
+    schedule:
+      interval: "weekly"     # Weekly is a good balance—you won’t miss important updates.
+    
+  # For GitHub Actions workflows
+  - package-ecosystem: "github-actions" # Updates for workflows in the .github/workflows folder.
+    directory: "/"                      # This is usually the root folder where workflows are stored.
+    schedule:
+      interval: "daily"                 # Daily checks make sense here because GitHub Actions change often.
+
+  # For Java (Maven projects)
+  - package-ecosystem: "maven" # Dependabot will check for updates in Maven (Java stuff).
+    directory: "/"             # The folder where your pom.xml file lives.
+    schedule:
+      interval: "monthly"      # Updates here tend to be slower, so once a month is fine.
+
+  # For Docker images
+  - package-ecosystem: "docker" # Checks for updates in your Dockerfile(s).
+    directory: "/"              # This is usually the root directory of your repo.
+    schedule:
+      interval: "daily"         # Docker images get updated frequently, so daily works best.
